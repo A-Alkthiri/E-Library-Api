@@ -17,7 +17,7 @@ class ContentTypeFactory extends Factory
     public function definition(): array
     {
         return [
-            'type' => fake()->randomElement(['Book', 'Video', 'Magazine']),
+            'type' => fake()->word()//randomElement(['Book', 'Video', 'Magazine']),
         ];
     }
 }

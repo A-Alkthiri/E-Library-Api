@@ -38,6 +38,7 @@ class ContentController extends BaseApiController
             'title' => 'required|max:255',
             'description' => 'required',
             'category_id' => 'required|exists:categories,id',
+            'image_path' => 'required|string',
             'type_id' => 'required|exists:content_types,id',
             'user_id' => 'required|exists:users,id',
         ]);
