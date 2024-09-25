@@ -22,8 +22,6 @@ class ContentResource extends JsonResource
             'content_type' => new ContentTypeResource($this->whenLoaded('contentType')),
             'user' => new UserResource($this->whenLoaded('user')),
             'media' => MediaResource::collection($this->whenLoaded('media')),
-            'created_at' => $this->created_at,
-            'updated_at' => $this->updated_at,
         ];
     }
 }

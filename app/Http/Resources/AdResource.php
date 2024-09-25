@@ -20,8 +20,6 @@ class AdResource extends JsonResource
             'image_url' => $this->image_url,
             'link' => $this->link,
             'active' => $this->active,
-            'created_at' => $this->created_at,
-            'updated_at' => $this->updated_at,
         ];
     }
 }
