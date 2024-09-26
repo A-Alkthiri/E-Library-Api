@@ -1,0 +1,267 @@
+name: Authentication
+description: |-
+
+  APIs for user authentication and profile management.
+endpoints:
+  -
+    httpMethods:
+      - POST
+    uri: api/register
+    metadata:
+      groupName: Authentication
+      groupDescription: |-
+
+        APIs for user authentication and profile management.
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Register a new user.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: 'The name of the user.'
+        required: true
+        example: 'John Doe'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        custom: []
+      email:
+        name: email
+        description: 'The email of the user.'
+        required: true
+        example: johndoe@example.com
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        custom: []
+      password:
+        name: password
+        description: 'The password of the user. Must be at least 8 characters.'
+        required: true
+        example: secretpassword
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        custom: []
+    cleanBodyParameters:
+      name: 'John Doe'
+      email: johndoe@example.com
+      password: secretpassword
+    fileParameters: []
+    responses:
+      -
+        status: 201
+        content: |-
+          {
+           "code": 201,
+           "data": {
+             "id": 1,
+             "name": "John Doe",
+             "email": "johndoe@example.com",
+             "created_at": "2024-01-01T00:00:00.000000Z",
+             "updated_at": "2024-01-01T00:00:00.000000Z"
+           },
+           "message": "User registered successfully"
+          }
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 422
+        content: |-
+          {
+           "code": 422,
+           "message": "The given data was invalid."
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/login
+    metadata:
+      groupName: Authentication
+      groupDescription: |-
+
+        APIs for user authentication and profile management.
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'User login.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      email:
+        name: email
+        description: 'The email of the user.'
+        required: true
+        example: johndoe@example.com
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        custom: []
+      password:
+        name: password
+        description: 'The password of the user.'
+        required: true
+        example: secretpassword
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        custom: []
+    cleanBodyParameters:
+      email: johndoe@example.com
+      password: secretpassword
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+           "code": 200,
+           "data": {
+             "token": "1|abcd1234token",
+             "user": {
+               "id": 1,
+               "name": "John Doe",
+               "email": "johndoe@example.com",
+               "created_at": "2024-01-01T00:00:00.000000Z",
+               "updated_at": "2024-01-01T00:00:00.000000Z"
+             }
+           },
+           "message": "Login successful"
+          }
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 401
+        content: |-
+          {
+           "code": 401,
+           "message": "Invalid credentials"
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/logout
+    metadata:
+      groupName: Authentication
+      groupDescription: |-
+
+        APIs for user authentication and profile management.
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'User logout.'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+           "code": 200,
+           "message": "Logout successful"
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/profile
+    metadata:
+      groupName: Authentication
+      groupDescription: |-
+
+        APIs for user authentication and profile management.
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Get authenticated user details.'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+           "code": 200,
+           "data": {
+             "id": 1,
+             "name": "John Doe",
+             "email": "johndoe@example.com",
+             "created_at": "2024-01-01T00:00:00.000000Z",
+             "updated_at": "2024-01-01T00:00:00.000000Z"
+           },
+           "message": "Authenticated user data"
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []

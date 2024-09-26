@@ -1,0 +1,1981 @@
+openapi: 3.0.3
+info:
+  title: Laravel
+  description: ''
+  version: 1.0.0
+servers:
+  -
+    url: 'http://localhost'
+paths:
+  /api/ads:
+    get:
+      summary: 'Get all ads.'
+      operationId: getAllAds
+      description: 'Retrieve a list of all ads.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  code: 200
+                  data:
+                    -
+                      id: 1
+                      title: 'Ad Title'
+                      image_url: 'https://example.com/image.jpg'
+                      link: 'https://example.com'
+                      active: true
+                      created_at: '2024-01-01T00:00:00.000000Z'
+                      updated_at: '2024-01-01T00:00:00.000000Z'
+                  message: 'Ads retrieved successfully'
+                properties:
+                  code:
+                    type: integer
+                    example: 200
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 1
+                        title: 'Ad Title'
+                        image_url: 'https://example.com/image.jpg'
+                        link: 'https://example.com'
+                        active: true
+                        created_at: '2024-01-01T00:00:00.000000Z'
+                        updated_at: '2024-01-01T00:00:00.000000Z'
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 1
+                        title:
+                          type: string
+                          example: 'Ad Title'
+                        image_url:
+                          type: string
+                          example: 'https://example.com/image.jpg'
+                        link:
+                          type: string
+                          example: 'https://example.com'
+                        active:
+                          type: boolean
+                          example: true
+                        created_at:
+                          type: string
+                          example: '2024-01-01T00:00:00.000000Z'
+                        updated_at:
+                          type: string
+                          example: '2024-01-01T00:00:00.000000Z'
+                  message:
+                    type: string
+                    example: 'Ads retrieved successfully'
+      tags:
+        - 'Ad Management'
+      security: []
+    post:
+      summary: 'Create a new ad.'
+      operationId: createANewAd
+      description: ''
+      parameters: []
+      responses:
+        201:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  code: 201
+                  data:
+                    id: 1
+                    title: 'Summer Sale'
+                    image_url: 'https://example.com/image.jpg'
+                    link: 'https://example.com'
+                    active: true
+                    created_at: '2024-01-01T00:00:00.000000Z'
+                    updated_at: '2024-01-01T00:00:00.000000Z'
+                  message: 'Ad created successfully'
+                properties:
+                  code:
+                    type: integer
+                    example: 201
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 1
+                      title:
+                        type: string
+                        example: 'Summer Sale'
+                      image_url:
+                        type: string
+                        example: 'https://example.com/image.jpg'
+                      link:
+                        type: string
+                        example: 'https://example.com'
+                      active:
+                        type: boolean
+                        example: true
+                      created_at:
+                        type: string
+                        example: '2024-01-01T00:00:00.000000Z'
+                      updated_at:
+                        type: string
+                        example: '2024-01-01T00:00:00.000000Z'
+                  message:
+                    type: string
+                    example: 'Ad created successfully'
+        422:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  code: 422
+                  message: 'The given data was invalid.'
+                properties:
+                  code:
+                    type: integer
+                    example: 422
+                  message:
+                    type: string
+                    example: 'The given data was invalid.'
+      tags:
+        - 'Ad Management'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  description: 'The title of the ad.'
+                  example: '"Summer Sale"'
+                image_url:
+                  type: string
+                  description: 'The URL of the ad image.'
+                  example: '"https://example.com/image.jpg"'
+                link:
+                  type: string
+                  description: 'optional The URL to which the ad redirects.'
+                  example: '"https://example.com"'
+                active:
+                  type: boolean
+                  description: 'Whether the ad is active.'
+                  example: true
+              required:
+                - title
+                - image_url
+                - active
+      security: []
+  '/api/ads/{id}':
+    get:
+      summary: 'Get a single ad.'
+      operationId: getASingleAd
+      description: 'Retrieve a specific ad by its ID.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  code: 200
+                  data:
+                    id: 1
+                    title: 'Ad Title'
+                    image_url: 'https://example.com/image.jpg'
+                    link: 'https://example.com'
+                    active: true
+                    created_at: '2024-01-01T00:00:00.000000Z'
+                    updated_at: '2024-01-01T00:00:00.000000Z'
+                  message: 'Ad retrieved successfully'
+                properties:
+                  code:
+                    type: integer
+                    example: 200
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 1
+                      title:
+                        type: string
+                        example: 'Ad Title'
+                      image_url:
+                        type: string
+                        example: 'https://example.com/image.jpg'
+                      link:
+                        type: string
+                        example: 'https://example.com'
+                      active:
+                        type: boolean
+                        example: true
+                      created_at:
+                        type: string
+                        example: '2024-01-01T00:00:00.000000Z'
+                      updated_at:
+                        type: string
+                        example: '2024-01-01T00:00:00.000000Z'
+                  message:
+                    type: string
+                    example: 'Ad retrieved successfully'
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  code: 404
+                  message: 'Ad not found'
+                properties:
+                  code:
+                    type: integer
+                    example: 404
+                  message:
+                    type: string
+                    example: 'Ad not found'
+      tags:
+        - 'Ad Management'
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the ad.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  /api/register:
+    post:
+      summary: 'Register a new user.'
+      operationId: registerANewUser
+      description: ''
+      parameters: []
+      responses:
+        201:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  code: 201
+                  data:
+                    id: 1
+                    name: 'John Doe'
+                    email: johndoe@example.com
+                    created_at: '2024-01-01T00:00:00.000000Z'
+                    updated_at: '2024-01-01T00:00:00.000000Z'
+                  message: 'User registered successfully'
+                properties:
+                  code:
+                    type: integer
+                    example: 201
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 1
+                      name:
+                        type: string
+                        example: 'John Doe'
+                      email:
+                        type: string
+                        example: johndoe@example.com
+                      created_at:
+                        type: string
+                        example: '2024-01-01T00:00:00.000000Z'
+                      updated_at:
+                        type: string
+                        example: '2024-01-01T00:00:00.000000Z'
+                  message:
+                    type: string
+                    example: 'User registered successfully'
+        422:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  code: 422
+                  message: 'The given data was invalid.'
+                properties:
+                  code:
+                    type: integer
+                    example: 422
+                  message:
+                    type: string
+                    example: 'The given data was invalid.'
+      tags:
+        - Authentication
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'The name of the user.'
+                  example: 'John Doe'
+                email:
+                  type: string
+                  description: 'The email of the user.'
+                  example: johndoe@example.com
+                password:
+                  type: string
+                  description: 'The password of the user. Must be at least 8 characters.'
+                  example: secretpassword
+              required:
+                - name
+                - email
+                - password
+      security: []
+  /api/login:
+    post:
+      summary: 'User login.'
+      operationId: userLogin
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  code: 200
+                  data:
+                    token: 1|abcd1234token
+                    user:
+                      id: 1
+                      name: 'John Doe'
+                      email: johndoe@example.com
+                      created_at: '2024-01-01T00:00:00.000000Z'
+                      updated_at: '2024-01-01T00:00:00.000000Z'
+                  message: 'Login successful'
+                properties:
+                  code:
+                    type: integer
+                    example: 200
+                  data:
+                    type: object
+                    properties:
+                      token:
+                        type: string
+                        example: 1|abcd1234token
+                      user:
+                        type: object
+                        properties:
+                          id:
+                            type: integer
+                            example: 1
+                          name:
+                            type: string
+                            example: 'John Doe'
+                          email:
+                            type: string
+                            example: johndoe@example.com
+                          created_at:
+                            type: string
+                            example: '2024-01-01T00:00:00.000000Z'
+                          updated_at:
+                            type: string
+                            example: '2024-01-01T00:00:00.000000Z'
+                  message:
+                    type: string
+                    example: 'Login successful'
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  code: 401
+                  message: 'Invalid credentials'
+                properties:
+                  code:
+                    type: integer
+                    example: 401
+                  message:
+                    type: string
+                    example: 'Invalid credentials'
+      tags:
+        - Authentication
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 'The email of the user.'
+                  example: johndoe@example.com
+                password:
+                  type: string
+                  description: 'The password of the user.'
+                  example: secretpassword
+              required:
+                - email
+                - password
+      security: []
+  /api/logout:
+    post:
+      summary: 'User logout.'
+      operationId: userLogout
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  code: 200
+                  message: 'Logout successful'
+                properties:
+                  code:
+                    type: integer
+                    example: 200
+                  message:
+                    type: string
+                    example: 'Logout successful'
+      tags:
+        - Authentication
+  /api/profile:
+    get:
+      summary: 'Get authenticated user details.'
+      operationId: getAuthenticatedUserDetails
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  code: 200
+                  data:
+                    id: 1
+                    name: 'John Doe'
+                    email: johndoe@example.com
+                    created_at: '2024-01-01T00:00:00.000000Z'
+                    updated_at: '2024-01-01T00:00:00.000000Z'
+                  message: 'Authenticated user data'
+                properties:
+                  code:
+                    type: integer
+                    example: 200
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 1
+                      name:
+                        type: string
+                        example: 'John Doe'
+                      email:
+                        type: string
+                        example: johndoe@example.com
+                      created_at:
+                        type: string
+                        example: '2024-01-01T00:00:00.000000Z'
+                      updated_at:
+                        type: string
+                        example: '2024-01-01T00:00:00.000000Z'
+                  message:
+                    type: string
+                    example: 'Authenticated user data'
+      tags:
+        - Authentication
+  /api/categories:
+    get:
+      summary: 'Get all categories.'
+      operationId: getAllCategories
+      description: 'Retrieve a list of all categories.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  code: 200
+                  data:
+                    -
+                      id: 1
+                      name: Technology
+                      created_at: '2024-01-01T00:00:00.000000Z'
+                      updated_at: '2024-01-01T00:00:00.000000Z'
+                  message: 'Categories retrieved successfully'
+                properties:
+                  code:
+                    type: integer
+                    example: 200
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 1
+                        name: Technology
+                        created_at: '2024-01-01T00:00:00.000000Z'
+                        updated_at: '2024-01-01T00:00:00.000000Z'
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 1
+                        name:
+                          type: string
+                          example: Technology
+                        created_at:
+                          type: string
+                          example: '2024-01-01T00:00:00.000000Z'
+                        updated_at:
+                          type: string
+                          example: '2024-01-01T00:00:00.000000Z'
+                  message:
+                    type: string
+                    example: 'Categories retrieved successfully'
+      tags:
+        - 'Category Management'
+      security: []
+    post:
+      summary: 'Create a new category.'
+      operationId: createANewCategory
+      description: ''
+      parameters: []
+      responses:
+        201:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  code: 201
+                  data:
+                    id: 1
+                    name: Technology
+                    created_at: '2024-01-01T00:00:00.000000Z'
+                    updated_at: '2024-01-01T00:00:00.000000Z'
+                  message: 'Category created successfully'
+                properties:
+                  code:
+                    type: integer
+                    example: 201
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 1
+                      name:
+                        type: string
+                        example: Technology
+                      created_at:
+                        type: string
+                        example: '2024-01-01T00:00:00.000000Z'
+                      updated_at:
+                        type: string
+                        example: '2024-01-01T00:00:00.000000Z'
+                  message:
+                    type: string
+                    example: 'Category created successfully'
+        422:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  code: 422
+                  message: 'The given data was invalid.'
+                properties:
+                  code:
+                    type: integer
+                    example: 422
+                  message:
+                    type: string
+                    example: 'The given data was invalid.'
+      tags:
+        - 'Category Management'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'The name of the category.'
+                  example: Technology
+              required:
+                - name
+      security: []
+  '/api/categories/{id}':
+    get:
+      summary: 'Get a single category.'
+      operationId: getASingleCategory
+      description: 'Retrieve a specific category by its ID.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  code: 200
+                  data:
+                    id: 1
+                    name: Technology
+                    created_at: '2024-01-01T00:00:00.000000Z'
+                    updated_at: '2024-01-01T00:00:00.000000Z'
+                  message: 'Category retrieved successfully'
+                properties:
+                  code:
+                    type: integer
+                    example: 200
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 1
+                      name:
+                        type: string
+                        example: Technology
+                      created_at:
+                        type: string
+                        example: '2024-01-01T00:00:00.000000Z'
+                      updated_at:
+                        type: string
+                        example: '2024-01-01T00:00:00.000000Z'
+                  message:
+                    type: string
+                    example: 'Category retrieved successfully'
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  code: 404
+                  message: 'Category not found'
+                properties:
+                  code:
+                    type: integer
+                    example: 404
+                  message:
+                    type: string
+                    example: 'Category not found'
+      tags:
+        - 'Category Management'
+      security: []
+    put:
+      summary: 'Update an existing category.'
+      operationId: updateAnExistingCategory
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  code: 200
+                  data:
+                    id: 1
+                    name: 'Updated Technology'
+                    created_at: '2024-01-01T00:00:00.000000Z'
+                    updated_at: '2024-01-01T00:00:00.000000Z'
+                  message: 'Category updated successfully'
+                properties:
+                  code:
+                    type: integer
+                    example: 200
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 1
+                      name:
+                        type: string
+                        example: 'Updated Technology'
+                      created_at:
+                        type: string
+                        example: '2024-01-01T00:00:00.000000Z'
+                      updated_at:
+                        type: string
+                        example: '2024-01-01T00:00:00.000000Z'
+                  message:
+                    type: string
+                    example: 'Category updated successfully'
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  code: 404
+                  message: 'Category not found'
+                properties:
+                  code:
+                    type: integer
+                    example: 404
+                  message:
+                    type: string
+                    example: 'Category not found'
+      tags:
+        - 'Category Management'
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'The name of the category.'
+                  example: Technology
+      security: []
+    delete:
+      summary: 'Delete a category.'
+      operationId: deleteACategory
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  code: 200
+                  message: 'Category deleted successfully'
+                properties:
+                  code:
+                    type: integer
+                    example: 200
+                  message:
+                    type: string
+                    example: 'Category deleted successfully'
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  code: 404
+                  message: 'Category not found'
+                properties:
+                  code:
+                    type: integer
+                    example: 404
+                  message:
+                    type: string
+                    example: 'Category not found'
+      tags:
+        - 'Category Management'
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the category.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  /api/contents:
+    get:
+      summary: 'Get all content.'
+      operationId: getAllContent
+      description: 'Retrieve a list of all content items with their related data.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  code: 200
+                  data:
+                    -
+                      id: 1
+                      title: 'Introduction to Programming'
+                      description: 'A basic introduction to programming concepts.'
+                      category:
+                        id: 1
+                        name: Technology
+                      content_type:
+                        id: 1
+                        name: Article
+                      user:
+                        id: 1
+                        name: 'John Doe'
+                      media:
+                        -
+                          id: 1
+                          url: 'https://example.com/media/image.jpg'
+                      created_at: '2024-01-01T00:00:00.000000Z'
+                      updated_at: '2024-01-01T00:00:00.000000Z'
+                  message: 'Content retrieved successfully'
+                properties:
+                  code:
+                    type: integer
+                    example: 200
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 1
+                        title: 'Introduction to Programming'
+                        description: 'A basic introduction to programming concepts.'
+                        category:
+                          id: 1
+                          name: Technology
+                        content_type:
+                          id: 1
+                          name: Article
+                        user:
+                          id: 1
+                          name: 'John Doe'
+                        media:
+                          -
+                            id: 1
+                            url: 'https://example.com/media/image.jpg'
+                        created_at: '2024-01-01T00:00:00.000000Z'
+                        updated_at: '2024-01-01T00:00:00.000000Z'
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 1
+                        title:
+                          type: string
+                          example: 'Introduction to Programming'
+                        description:
+                          type: string
+                          example: 'A basic introduction to programming concepts.'
+                        category:
+                          type: object
+                          properties:
+                            id:
+                              type: integer
+                              example: 1
+                            name:
+                              type: string
+                              example: Technology
+                        content_type:
+                          type: object
+                          properties:
+                            id:
+                              type: integer
+                              example: 1
+                            name:
+                              type: string
+                              example: Article
+                        user:
+                          type: object
+                          properties:
+                            id:
+                              type: integer
+                              example: 1
+                            name:
+                              type: string
+                              example: 'John Doe'
+                        media:
+                          type: array
+                          example:
+                            -
+                              id: 1
+                              url: 'https://example.com/media/image.jpg'
+                          items:
+                            type: object
+                            properties:
+                              id:
+                                type: integer
+                                example: 1
+                              url:
+                                type: string
+                                example: 'https://example.com/media/image.jpg'
+                        created_at:
+                          type: string
+                          example: '2024-01-01T00:00:00.000000Z'
+                        updated_at:
+                          type: string
+                          example: '2024-01-01T00:00:00.000000Z'
+                  message:
+                    type: string
+                    example: 'Content retrieved successfully'
+      tags:
+        - 'Content Management'
+      security: []
+    post:
+      summary: 'Create a new content.'
+      operationId: createANewContent
+      description: ''
+      parameters: []
+      responses:
+        201:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  code: 201
+                  data:
+                    id: 1
+                    title: 'Introduction to Programming'
+                    description: 'A basic introduction to programming concepts.'
+                    category:
+                      id: 1
+                      name: Technology
+                    content_type:
+                      id: 1
+                      name: Article
+                    user:
+                      id: 1
+                      name: 'John Doe'
+                    media:
+                      -
+                        id: 1
+                        url: 'https://example.com/media/image.jpg'
+                    created_at: '2024-01-01T00:00:00.000000Z'
+                    updated_at: '2024-01-01T00:00:00.000000Z'
+                  message: 'Content created successfully'
+                properties:
+                  code:
+                    type: integer
+                    example: 201
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 1
+                      title:
+                        type: string
+                        example: 'Introduction to Programming'
+                      description:
+                        type: string
+                        example: 'A basic introduction to programming concepts.'
+                      category:
+                        type: object
+                        properties:
+                          id:
+                            type: integer
+                            example: 1
+                          name:
+                            type: string
+                            example: Technology
+                      content_type:
+                        type: object
+                        properties:
+                          id:
+                            type: integer
+                            example: 1
+                          name:
+                            type: string
+                            example: Article
+                      user:
+                        type: object
+                        properties:
+                          id:
+                            type: integer
+                            example: 1
+                          name:
+                            type: string
+                            example: 'John Doe'
+                      media:
+                        type: array
+                        example:
+                          -
+                            id: 1
+                            url: 'https://example.com/media/image.jpg'
+                        items:
+                          type: object
+                          properties:
+                            id:
+                              type: integer
+                              example: 1
+                            url:
+                              type: string
+                              example: 'https://example.com/media/image.jpg'
+                      created_at:
+                        type: string
+                        example: '2024-01-01T00:00:00.000000Z'
+                      updated_at:
+                        type: string
+                        example: '2024-01-01T00:00:00.000000Z'
+                  message:
+                    type: string
+                    example: 'Content created successfully'
+        422:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  code: 422
+                  message: 'The given data was invalid.'
+                properties:
+                  code:
+                    type: integer
+                    example: 422
+                  message:
+                    type: string
+                    example: 'The given data was invalid.'
+      tags:
+        - 'Content Management'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  description: 'The title of the content.'
+                  example: 'Introduction to Programming'
+                description:
+                  type: string
+                  description: 'A detailed description of the content.'
+                  example: 'A basic introduction to programming concepts.'
+                category_id:
+                  type: integer
+                  description: 'The ID of the category.'
+                  example: 1
+                image_path:
+                  type: string
+                  description: "The path to the content's image."
+                  example: /images/programming.jpg
+                type_id:
+                  type: integer
+                  description: 'The ID of the content type.'
+                  example: 1
+                user_id:
+                  type: integer
+                  description: 'The ID of the user who created the content.'
+                  example: 1
+              required:
+                - title
+                - description
+                - category_id
+                - image_path
+                - type_id
+                - user_id
+      security: []
+  '/api/contents/{id}':
+    get:
+      summary: 'Get single content.'
+      operationId: getSingleContent
+      description: 'Retrieve a specific content item by its ID.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  code: 200
+                  data:
+                    id: 1
+                    title: 'Introduction to Programming'
+                    description: 'A basic introduction to programming concepts.'
+                    category:
+                      id: 1
+                      name: Technology
+                    content_type:
+                      id: 1
+                      name: Article
+                    user:
+                      id: 1
+                      name: 'John Doe'
+                    media:
+                      -
+                        id: 1
+                        url: 'https://example.com/media/image.jpg'
+                    created_at: '2024-01-01T00:00:00.000000Z'
+                    updated_at: '2024-01-01T00:00:00.000000Z'
+                  message: 'Content retrieved successfully'
+                properties:
+                  code:
+                    type: integer
+                    example: 200
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 1
+                      title:
+                        type: string
+                        example: 'Introduction to Programming'
+                      description:
+                        type: string
+                        example: 'A basic introduction to programming concepts.'
+                      category:
+                        type: object
+                        properties:
+                          id:
+                            type: integer
+                            example: 1
+                          name:
+                            type: string
+                            example: Technology
+                      content_type:
+                        type: object
+                        properties:
+                          id:
+                            type: integer
+                            example: 1
+                          name:
+                            type: string
+                            example: Article
+                      user:
+                        type: object
+                        properties:
+                          id:
+                            type: integer
+                            example: 1
+                          name:
+                            type: string
+                            example: 'John Doe'
+                      media:
+                        type: array
+                        example:
+                          -
+                            id: 1
+                            url: 'https://example.com/media/image.jpg'
+                        items:
+                          type: object
+                          properties:
+                            id:
+                              type: integer
+                              example: 1
+                            url:
+                              type: string
+                              example: 'https://example.com/media/image.jpg'
+                      created_at:
+                        type: string
+                        example: '2024-01-01T00:00:00.000000Z'
+                      updated_at:
+                        type: string
+                        example: '2024-01-01T00:00:00.000000Z'
+                  message:
+                    type: string
+                    example: 'Content retrieved successfully'
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  code: 404
+                  message: 'Content not found'
+                properties:
+                  code:
+                    type: integer
+                    example: 404
+                  message:
+                    type: string
+                    example: 'Content not found'
+      tags:
+        - 'Content Management'
+      security: []
+    put:
+      summary: 'Update an existing content.'
+      operationId: updateAnExistingContent
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  code: 200
+                  data:
+                    id: 1
+                    title: 'Introduction to Programming'
+                    description: 'A basic introduction to programming concepts.'
+                    category:
+                      id: 1
+                      name: Technology
+                    content_type:
+                      id: 1
+                      name: Article
+                    user:
+                      id: 1
+                      name: 'John Doe'
+                    media:
+                      -
+                        id: 1
+                        url: 'https://example.com/media/image.jpg'
+                    created_at: '2024-01-01T00:00:00.000000Z'
+                    updated_at: '2024-01-01T00:00:00.000000Z'
+                  message: 'Content updated successfully'
+                properties:
+                  code:
+                    type: integer
+                    example: 200
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 1
+                      title:
+                        type: string
+                        example: 'Introduction to Programming'
+                      description:
+                        type: string
+                        example: 'A basic introduction to programming concepts.'
+                      category:
+                        type: object
+                        properties:
+                          id:
+                            type: integer
+                            example: 1
+                          name:
+                            type: string
+                            example: Technology
+                      content_type:
+                        type: object
+                        properties:
+                          id:
+                            type: integer
+                            example: 1
+                          name:
+                            type: string
+                            example: Article
+                      user:
+                        type: object
+                        properties:
+                          id:
+                            type: integer
+                            example: 1
+                          name:
+                            type: string
+                            example: 'John Doe'
+                      media:
+                        type: array
+                        example:
+                          -
+                            id: 1
+                            url: 'https://example.com/media/image.jpg'
+                        items:
+                          type: object
+                          properties:
+                            id:
+                              type: integer
+                              example: 1
+                            url:
+                              type: string
+                              example: 'https://example.com/media/image.jpg'
+                      created_at:
+                        type: string
+                        example: '2024-01-01T00:00:00.000000Z'
+                      updated_at:
+                        type: string
+                        example: '2024-01-01T00:00:00.000000Z'
+                  message:
+                    type: string
+                    example: 'Content updated successfully'
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  code: 404
+                  message: 'Content not found'
+                properties:
+                  code:
+                    type: integer
+                    example: 404
+                  message:
+                    type: string
+                    example: 'Content not found'
+      tags:
+        - 'Content Management'
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  description: 'The title of the content.'
+                  example: 'Introduction to Programming'
+                description:
+                  type: string
+                  description: 'A detailed description of the content.'
+                  example: 'A basic introduction to programming concepts.'
+                category_id:
+                  type: integer
+                  description: 'The ID of the category.'
+                  example: 1
+                image_path:
+                  type: string
+                  description: "The path to the content's image."
+                  example: /images/programming.jpg
+                type_id:
+                  type: integer
+                  description: 'The ID of the content type.'
+                  example: 1
+                user_id:
+                  type: integer
+                  description: 'The ID of the user who created the content.'
+                  example: 1
+      security: []
+    delete:
+      summary: 'Delete a content.'
+      operationId: deleteAContent
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  code: 200
+                  message: 'Content deleted successfully'
+                properties:
+                  code:
+                    type: integer
+                    example: 200
+                  message:
+                    type: string
+                    example: 'Content deleted successfully'
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  code: 404
+                  message: 'Content not found'
+                properties:
+                  code:
+                    type: integer
+                    example: 404
+                  message:
+                    type: string
+                    example: 'Content not found'
+      tags:
+        - 'Content Management'
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the content.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  /api/content-types:
+    get:
+      summary: 'Get all content types.'
+      operationId: getAllContentTypes
+      description: 'Retrieve a list of all content types.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  code: 200
+                  data:
+                    -
+                      id: 1
+                      name: Article
+                      created_at: '2024-01-01T00:00:00.000000Z'
+                      updated_at: '2024-01-01T00:00:00.000000Z'
+                  message: 'Content types retrieved successfully'
+                properties:
+                  code:
+                    type: integer
+                    example: 200
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 1
+                        name: Article
+                        created_at: '2024-01-01T00:00:00.000000Z'
+                        updated_at: '2024-01-01T00:00:00.000000Z'
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 1
+                        name:
+                          type: string
+                          example: Article
+                        created_at:
+                          type: string
+                          example: '2024-01-01T00:00:00.000000Z'
+                        updated_at:
+                          type: string
+                          example: '2024-01-01T00:00:00.000000Z'
+                  message:
+                    type: string
+                    example: 'Content types retrieved successfully'
+      tags:
+        - 'Content Type Management'
+      security: []
+    post:
+      summary: 'Create a new content type.'
+      operationId: createANewContentType
+      description: ''
+      parameters: []
+      responses:
+        201:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  code: 201
+                  data:
+                    id: 1
+                    name: Article
+                    created_at: '2024-01-01T00:00:00.000000Z'
+                    updated_at: '2024-01-01T00:00:00.000000Z'
+                  message: 'Content type created successfully'
+                properties:
+                  code:
+                    type: integer
+                    example: 201
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 1
+                      name:
+                        type: string
+                        example: Article
+                      created_at:
+                        type: string
+                        example: '2024-01-01T00:00:00.000000Z'
+                      updated_at:
+                        type: string
+                        example: '2024-01-01T00:00:00.000000Z'
+                  message:
+                    type: string
+                    example: 'Content type created successfully'
+        422:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  code: 422
+                  message: 'The given data was invalid.'
+                properties:
+                  code:
+                    type: integer
+                    example: 422
+                  message:
+                    type: string
+                    example: 'The given data was invalid.'
+      tags:
+        - 'Content Type Management'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'The name of the content type.'
+                  example: Article
+              required:
+                - name
+      security: []
+  '/api/content-types/{id}':
+    get:
+      summary: 'Get a single content type.'
+      operationId: getASingleContentType
+      description: 'Retrieve a specific content type by its ID.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  code: 200
+                  data:
+                    id: 1
+                    name: Article
+                    created_at: '2024-01-01T00:00:00.000000Z'
+                    updated_at: '2024-01-01T00:00:00.000000Z'
+                  message: 'Content type retrieved successfully'
+                properties:
+                  code:
+                    type: integer
+                    example: 200
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 1
+                      name:
+                        type: string
+                        example: Article
+                      created_at:
+                        type: string
+                        example: '2024-01-01T00:00:00.000000Z'
+                      updated_at:
+                        type: string
+                        example: '2024-01-01T00:00:00.000000Z'
+                  message:
+                    type: string
+                    example: 'Content type retrieved successfully'
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  code: 404
+                  message: 'Content type not found'
+                properties:
+                  code:
+                    type: integer
+                    example: 404
+                  message:
+                    type: string
+                    example: 'Content type not found'
+      tags:
+        - 'Content Type Management'
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the content type.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  /api/users:
+    get:
+      summary: ''
+      operationId: getApiUsers
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      security: []
+    post:
+      summary: ''
+      operationId: postApiUsers
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: ''
+                  example: eligendi
+                email:
+                  type: string
+                  description: 'Must be a valid email address.'
+                  example: una59@example.org
+                password:
+                  type: string
+                  description: 'Must be at least 6 characters.'
+                  example: '/3+1!GGp(~B{'
+              required:
+                - name
+                - email
+                - password
+      security: []
+  '/api/users/{id}':
+    get:
+      summary: ''
+      operationId: getApiUsersId
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the user.'
+        example: doloribus
+        required: true
+        schema:
+          type: string
+  /api/media:
+    get:
+      summary: 'Get all media.'
+      operationId: getAllMedia
+      description: 'Retrieve a list of all media resources.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  code: 200
+                  data:
+                    -
+                      id: 1
+                      content_id: 1
+                      url: 'https://example.com/media/image.jpg'
+                      type: image
+                      created_at: '2024-01-01T00:00:00.000000Z'
+                      updated_at: '2024-01-01T00:00:00.000000Z'
+                  message: 'Media retrieved successfully'
+                properties:
+                  code:
+                    type: integer
+                    example: 200
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 1
+                        content_id: 1
+                        url: 'https://example.com/media/image.jpg'
+                        type: image
+                        created_at: '2024-01-01T00:00:00.000000Z'
+                        updated_at: '2024-01-01T00:00:00.000000Z'
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 1
+                        content_id:
+                          type: integer
+                          example: 1
+                        url:
+                          type: string
+                          example: 'https://example.com/media/image.jpg'
+                        type:
+                          type: string
+                          example: image
+                        created_at:
+                          type: string
+                          example: '2024-01-01T00:00:00.000000Z'
+                        updated_at:
+                          type: string
+                          example: '2024-01-01T00:00:00.000000Z'
+                  message:
+                    type: string
+                    example: 'Media retrieved successfully'
+      tags:
+        - 'Media Management'
+      security: []
+    post:
+      summary: 'Create a new media resource.'
+      operationId: createANewMediaResource
+      description: ''
+      parameters: []
+      responses:
+        201:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  code: 201
+                  data:
+                    id: 1
+                    content_id: 1
+                    url: 'https://example.com/media/image.jpg'
+                    type: image
+                    created_at: '2024-01-01T00:00:00.000000Z'
+                    updated_at: '2024-01-01T00:00:00.000000Z'
+                  message: 'Media created successfully'
+                properties:
+                  code:
+                    type: integer
+                    example: 201
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 1
+                      content_id:
+                        type: integer
+                        example: 1
+                      url:
+                        type: string
+                        example: 'https://example.com/media/image.jpg'
+                      type:
+                        type: string
+                        example: image
+                      created_at:
+                        type: string
+                        example: '2024-01-01T00:00:00.000000Z'
+                      updated_at:
+                        type: string
+                        example: '2024-01-01T00:00:00.000000Z'
+                  message:
+                    type: string
+                    example: 'Media created successfully'
+        422:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  code: 422
+                  message: 'The given data was invalid.'
+                properties:
+                  code:
+                    type: integer
+                    example: 422
+                  message:
+                    type: string
+                    example: 'The given data was invalid.'
+      tags:
+        - 'Media Management'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                content_id:
+                  type: integer
+                  description: 'The ID of the associated content.'
+                  example: 1
+                url:
+                  type: string
+                  description: 'The URL of the media resource.'
+                  example: 'https://example.com/media/image.jpg'
+                type:
+                  type: string
+                  description: 'The type of the media resource.'
+                  example: image
+              required:
+                - content_id
+                - url
+                - type
+      security: []
+  '/api/media/{id}':
+    get:
+      summary: 'Get a single media resource.'
+      operationId: getASingleMediaResource
+      description: 'Retrieve a specific media resource by its ID.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  code: 200
+                  data:
+                    id: 1
+                    content_id: 1
+                    url: 'https://example.com/media/image.jpg'
+                    type: image
+                    created_at: '2024-01-01T00:00:00.000000Z'
+                    updated_at: '2024-01-01T00:00:00.000000Z'
+                  message: 'Media retrieved successfully'
+                properties:
+                  code:
+                    type: integer
+                    example: 200
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 1
+                      content_id:
+                        type: integer
+                        example: 1
+                      url:
+                        type: string
+                        example: 'https://example.com/media/image.jpg'
+                      type:
+                        type: string
+                        example: image
+                      created_at:
+                        type: string
+                        example: '2024-01-01T00:00:00.000000Z'
+                      updated_at:
+                        type: string
+                        example: '2024-01-01T00:00:00.000000Z'
+                  message:
+                    type: string
+                    example: 'Media retrieved successfully'
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  code: 404
+                  message: 'Media not found'
+                properties:
+                  code:
+                    type: integer
+                    example: 404
+                  message:
+                    type: string
+                    example: 'Media not found'
+      tags:
+        - 'Media Management'
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the media resource.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+tags:
+  -
+    name: 'Ad Management'
+    description: "\nAPIs for managing ads in the e-library."
+  -
+    name: Authentication
+    description: "\nAPIs for user authentication and profile management."
+  -
+    name: 'Category Management'
+    description: "\nAPIs for managing categories in the e-library."
+  -
+    name: 'Content Management'
+    description: "\nAPIs for managing content in the e-library."
+  -
+    name: 'Content Type Management'
+    description: "\nAPIs for managing content types in the e-library."
+  -
+    name: Endpoints
+    description: ''
+  -
+    name: 'Media Management'
+    description: "\nAPIs for managing media resources in the e-library."

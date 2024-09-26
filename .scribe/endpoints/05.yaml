@@ -1,0 +1,217 @@
+name: 'Media Management'
+description: |-
+
+  APIs for managing media resources in the e-library.
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/media
+    metadata:
+      groupName: 'Media Management'
+      groupDescription: |-
+
+        APIs for managing media resources in the e-library.
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Get all media.'
+      description: 'Retrieve a list of all media resources.'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+           "code": 200,
+           "data": [
+             {
+               "id": 1,
+               "content_id": 1,
+               "url": "https://example.com/media/image.jpg",
+               "type": "image",
+               "created_at": "2024-01-01T00:00:00.000000Z",
+               "updated_at": "2024-01-01T00:00:00.000000Z"
+             }
+           ],
+           "message": "Media retrieved successfully"
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/media
+    metadata:
+      groupName: 'Media Management'
+      groupDescription: |-
+
+        APIs for managing media resources in the e-library.
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Create a new media resource.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      content_id:
+        name: content_id
+        description: 'The ID of the associated content.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        custom: []
+      url:
+        name: url
+        description: 'The URL of the media resource.'
+        required: true
+        example: 'https://example.com/media/image.jpg'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        custom: []
+      type:
+        name: type
+        description: 'The type of the media resource.'
+        required: true
+        example: image
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        custom: []
+    cleanBodyParameters:
+      content_id: 1
+      url: 'https://example.com/media/image.jpg'
+      type: image
+    fileParameters: []
+    responses:
+      -
+        status: 201
+        content: |-
+          {
+           "code": 201,
+           "data": {
+             "id": 1,
+             "content_id": 1,
+             "url": "https://example.com/media/image.jpg",
+             "type": "image",
+             "created_at": "2024-01-01T00:00:00.000000Z",
+             "updated_at": "2024-01-01T00:00:00.000000Z"
+           },
+           "message": "Media created successfully"
+          }
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 422
+        content: |-
+          {
+           "code": 422,
+           "message": "The given data was invalid."
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/media/{id}'
+    metadata:
+      groupName: 'Media Management'
+      groupDescription: |-
+
+        APIs for managing media resources in the e-library.
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Get a single media resource.'
+      description: 'Retrieve a specific media resource by its ID.'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the media resource.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+           "code": 200,
+           "data": {
+             "id": 1,
+             "content_id": 1,
+             "url": "https://example.com/media/image.jpg",
+             "type": "image",
+             "created_at": "2024-01-01T00:00:00.000000Z",
+             "updated_at": "2024-01-01T00:00:00.000000Z"
+           },
+           "message": "Media retrieved successfully"
+          }
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 404
+        content: |-
+          {
+           "code": 404,
+           "message": "Media not found"
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
