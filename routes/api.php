@@ -18,6 +18,22 @@ use Illuminate\Support\Facades\Route;
 // Auth routes
 Route::post('register', [AuthController::class, 'register']);
 Route::post('login', [AuthController::class, 'login']);
+Route::apiResource('contents', ContentController::class)->only([
+    'index', 'show'
+]);
+Route::apiResource('categories', CategoryController::class)->only([
+    'index', 'show'
+]);
+Route::apiResource('content-types', ContentTypeController::class)->only([
+    'index', 'show'
+]);
+Route::apiResource('ads', AdController::class)->only([
+    'index', 'show'
+]);
+Route::apiResource('media', MediaController::class)->only([
+    'index', 'show'
+]);
+
 
 // Protect routes with Sanctum's auth middleware
 Route::middleware('auth:sanctum')->group(function () {
@@ -25,10 +41,20 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('profile', [AuthController::class, 'profile']);
 
     // Example of protected content routes
-    Route::apiResource('contents', ContentController::class);
-    Route::apiResource('categories', CategoryController::class);
-    Route::apiResource('content-types', ContentTypeController::class);
-    Route::apiResource('ads', AdController::class);
-    Route::apiResource('media', MediaController::class);
+    Route::apiResource('contents', ContentController::class)->except([
+        'index', 'show'
+    ]);
+    Route::apiResource('categories', CategoryController::class)->except([
+        'index', 'show'
+    ]);
+    Route::apiResource('content-types', ContentTypeController::class)->except([
+        'index', 'show'
+    ]);
+    Route::apiResource('ads', AdController::class)->except([
+        'index', 'show'
+    ]);
+    Route::apiResource('media', MediaController::class)->except([
+        'index', 'show'
+    ]);
     Route::apiResource('users', UserController::class);
 });
