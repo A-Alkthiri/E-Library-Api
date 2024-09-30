@@ -27,10 +27,7 @@ paths:
                       id: 1
                       title: 'Ad Title'
                       image_url: 'https://example.com/image.jpg'
-                      link: 'https://example.com'
-                      active: true
-                      created_at: '2024-01-01T00:00:00.000000Z'
-                      updated_at: '2024-01-01T00:00:00.000000Z'
+                      content: ' '
                   message: 'Ads retrieved successfully'
                 properties:
                   code:
@@ -43,10 +40,7 @@ paths:
                         id: 1
                         title: 'Ad Title'
                         image_url: 'https://example.com/image.jpg'
-                        link: 'https://example.com'
-                        active: true
-                        created_at: '2024-01-01T00:00:00.000000Z'
-                        updated_at: '2024-01-01T00:00:00.000000Z'
+                        content: ' '
                     items:
                       type: object
                       properties:
@@ -59,18 +53,9 @@ paths:
                         image_url:
                           type: string
                           example: 'https://example.com/image.jpg'
-                        link:
+                        content:
                           type: string
-                          example: 'https://example.com'
-                        active:
-                          type: boolean
-                          example: true
-                        created_at:
-                          type: string
-                          example: '2024-01-01T00:00:00.000000Z'
-                        updated_at:
-                          type: string
-                          example: '2024-01-01T00:00:00.000000Z'
+                          example: ' '
                   message:
                     type: string
                     example: 'Ads retrieved successfully'
@@ -95,10 +80,7 @@ paths:
                     id: 1
                     title: 'Summer Sale'
                     image_url: 'https://example.com/image.jpg'
-                    link: 'https://example.com'
-                    active: true
-                    created_at: '2024-01-01T00:00:00.000000Z'
-                    updated_at: '2024-01-01T00:00:00.000000Z'
+                    content: ' '
                   message: 'Ad created successfully'
                 properties:
                   code:
@@ -116,18 +98,9 @@ paths:
                       image_url:
                         type: string
                         example: 'https://example.com/image.jpg'
-                      link:
+                      content:
                         type: string
-                        example: 'https://example.com'
-                      active:
-                        type: boolean
-                        example: true
-                      created_at:
-                        type: string
-                        example: '2024-01-01T00:00:00.000000Z'
-                      updated_at:
-                        type: string
-                        example: '2024-01-01T00:00:00.000000Z'
+                        example: ' '
                   message:
                     type: string
                     example: 'Ad created successfully'
@@ -164,6 +137,10 @@ paths:
                   type: string
                   description: 'The URL of the ad image.'
                   example: '"https://example.com/image.jpg"'
+                content:
+                  type: string
+                  description: ''
+                  example: null
                 link:
                   type: string
                   description: 'optional The URL to which the ad redirects.'
@@ -196,10 +173,7 @@ paths:
                     id: 1
                     title: 'Ad Title'
                     image_url: 'https://example.com/image.jpg'
-                    link: 'https://example.com'
-                    active: true
-                    created_at: '2024-01-01T00:00:00.000000Z'
-                    updated_at: '2024-01-01T00:00:00.000000Z'
+                    content: ' '
                   message: 'Ad retrieved successfully'
                 properties:
                   code:
@@ -217,18 +191,9 @@ paths:
                       image_url:
                         type: string
                         example: 'https://example.com/image.jpg'
-                      link:
+                      content:
                         type: string
-                        example: 'https://example.com'
-                      active:
-                        type: boolean
-                        example: true
-                      created_at:
-                        type: string
-                        example: '2024-01-01T00:00:00.000000Z'
-                      updated_at:
-                        type: string
-                        example: '2024-01-01T00:00:00.000000Z'
+                        example: ' '
                   message:
                     type: string
                     example: 'Ad retrieved successfully'
@@ -248,6 +213,15 @@ paths:
                   message:
                     type: string
                     example: 'Ad not found'
+      tags:
+        - 'Ad Management'
+      security: []
+    delete:
+      summary: 'Remove the specified resource from storage.'
+      operationId: removeTheSpecifiedResourceFromStorage
+      description: ''
+      parameters: []
+      responses: {  }
       tags:
         - 'Ad Management'
       security: []
@@ -828,6 +802,34 @@ paths:
         required: true
         schema:
           type: integer
+  /api/categoryContentType:
+    post:
+      summary: ''
+      operationId: postApiCategoryContentType
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - 'Content Management'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                category_id:
+                  type: integer
+                  description: ''
+                  example: 8
+                content_type_id:
+                  type: integer
+                  description: ''
+                  example: 6
+              required:
+                - category_id
+                - content_type_id
+      security: []
   /api/contents:
     get:
       summary: 'Get all content.'
@@ -1627,6 +1629,15 @@ paths:
       tags:
         - 'Content Type Management'
       security: []
+    delete:
+      summary: 'Remove the specified resource from storage.'
+      operationId: removeTheSpecifiedResourceFromStorage
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - 'Content Type Management'
+      security: []
     parameters:
       -
         in: path
@@ -1637,27 +1648,6 @@ paths:
         schema:
           type: integer
   /api/users:
-    get:
-      summary: ''
-      operationId: getApiUsers
-      description: ''
-      parameters: []
-      responses:
-        401:
-          description: ''
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  message: Unauthenticated.
-                properties:
-                  message:
-                    type: string
-                    example: Unauthenticated.
-      tags:
-        - Endpoints
-      security: []
     post:
       summary: ''
       operationId: postApiUsers
@@ -1676,51 +1666,20 @@ paths:
                 name:
                   type: string
                   description: ''
-                  example: eligendi
+                  example: excepturi
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: una59@example.org
+                  example: king.connie@example.org
                 password:
                   type: string
                   description: 'Must be at least 6 characters.'
-                  example: '/3+1!GGp(~B{'
+                  example: '4a@3ENL_fJc{8N_0'
               required:
                 - name
                 - email
                 - password
       security: []
-  '/api/users/{id}':
-    get:
-      summary: ''
-      operationId: getApiUsersId
-      description: ''
-      parameters: []
-      responses:
-        401:
-          description: ''
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  message: Unauthenticated.
-                properties:
-                  message:
-                    type: string
-                    example: Unauthenticated.
-      tags:
-        - Endpoints
-      security: []
-    parameters:
-      -
-        in: path
-        name: id
-        description: 'The ID of the user.'
-        example: doloribus
-        required: true
-        schema:
-          type: string
   /api/media:
     get:
       summary: 'Get all media.'
@@ -1945,6 +1904,15 @@ paths:
                   message:
                     type: string
                     example: 'Media not found'
+      tags:
+        - 'Media Management'
+      security: []
+    delete:
+      summary: 'Remove the specified resource from storage.'
+      operationId: removeTheSpecifiedResourceFromStorage
+      description: ''
+      parameters: []
+      responses: {  }
       tags:
         - 'Media Management'
       security: []

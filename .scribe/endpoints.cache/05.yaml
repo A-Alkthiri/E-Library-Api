@@ -59,6 +59,76 @@ endpoints:
     custom: []
   -
     httpMethods:
+      - GET
+    uri: 'api/media/{id}'
+    metadata:
+      groupName: 'Media Management'
+      groupDescription: |-
+
+        APIs for managing media resources in the e-library.
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Get a single media resource.'
+      description: 'Retrieve a specific media resource by its ID.'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the media resource.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+           "code": 200,
+           "data": {
+             "id": 1,
+             "content_id": 1,
+             "url": "https://example.com/media/image.jpg",
+             "type": "image",
+             "created_at": "2024-01-01T00:00:00.000000Z",
+             "updated_at": "2024-01-01T00:00:00.000000Z"
+           },
+           "message": "Media retrieved successfully"
+          }
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 404
+        content: |-
+          {
+           "code": 404,
+           "message": "Media not found"
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
       - POST
     uri: api/media
     metadata:
@@ -149,7 +219,7 @@ endpoints:
     custom: []
   -
     httpMethods:
-      - GET
+      - DELETE
     uri: 'api/media/{id}'
     metadata:
       groupName: 'Media Management'
@@ -158,8 +228,8 @@ endpoints:
         APIs for managing media resources in the e-library.
       subgroup: ''
       subgroupDescription: ''
-      title: 'Get a single media resource.'
-      description: 'Retrieve a specific media resource by its ID.'
+      title: 'Remove the specified resource from storage.'
+      description: ''
       authenticated: false
       custom: []
     headers:
@@ -168,49 +238,21 @@ endpoints:
     urlParameters:
       id:
         name: id
-        description: 'The ID of the media resource.'
+        description: 'The ID of the medium.'
         required: true
-        example: 1
-        type: integer
+        example: repellendus
+        type: string
         enumValues: []
-        exampleWasSpecified: true
+        exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
-      id: 1
+      id: repellendus
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
     cleanBodyParameters: []
     fileParameters: []
-    responses:
-      -
-        status: 200
-        content: |-
-          {
-           "code": 200,
-           "data": {
-             "id": 1,
-             "content_id": 1,
-             "url": "https://example.com/media/image.jpg",
-             "type": "image",
-             "created_at": "2024-01-01T00:00:00.000000Z",
-             "updated_at": "2024-01-01T00:00:00.000000Z"
-           },
-           "message": "Media retrieved successfully"
-          }
-        headers: []
-        description: ''
-        custom: []
-      -
-        status: 404
-        content: |-
-          {
-           "code": 404,
-           "message": "Media not found"
-          }
-        headers: []
-        description: ''
-        custom: []
+    responses: []
     responseFields: []
     auth: []
     controller: null

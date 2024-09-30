@@ -5,6 +5,58 @@ description: |-
 endpoints:
   -
     httpMethods:
+      - POST
+    uri: api/categoryContentType
+    metadata:
+      groupName: 'Content Management'
+      groupDescription: |-
+
+        APIs for managing content in the e-library.
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      category_id:
+        name: category_id
+        description: ''
+        required: true
+        example: 8
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      content_type_id:
+        name: content_type_id
+        description: ''
+        required: true
+        example: 6
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanBodyParameters:
+      category_id: 8
+      content_type_id: 6
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
       - GET
     uri: api/contents
     metadata:
@@ -62,6 +114,93 @@ endpoints:
              }
            ],
            "message": "Content retrieved successfully"
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/contents/{id}'
+    metadata:
+      groupName: 'Content Management'
+      groupDescription: |-
+
+        APIs for managing content in the e-library.
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Get single content.'
+      description: 'Retrieve a specific content item by its ID.'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the content.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+           "code": 200,
+           "data": {
+             "id": 1,
+             "title": "Introduction to Programming",
+             "description": "A basic introduction to programming concepts.",
+             "category": {
+               "id": 1,
+               "name": "Technology"
+             },
+             "content_type": {
+               "id": 1,
+               "name": "Article"
+             },
+             "user": {
+               "id": 1,
+               "name": "John Doe"
+             },
+             "media": [
+               {
+                 "id": 1,
+                 "url": "https://example.com/media/image.jpg"
+               }
+             ],
+             "created_at": "2024-01-01T00:00:00.000000Z",
+             "updated_at": "2024-01-01T00:00:00.000000Z"
+           },
+           "message": "Content retrieved successfully"
+          }
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 404
+        content: |-
+          {
+           "code": 404,
+           "message": "Content not found"
           }
         headers: []
         description: ''
@@ -199,93 +338,6 @@ endpoints:
           {
            "code": 422,
            "message": "The given data was invalid."
-          }
-        headers: []
-        description: ''
-        custom: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - GET
-    uri: 'api/contents/{id}'
-    metadata:
-      groupName: 'Content Management'
-      groupDescription: |-
-
-        APIs for managing content in the e-library.
-      subgroup: ''
-      subgroupDescription: ''
-      title: 'Get single content.'
-      description: 'Retrieve a specific content item by its ID.'
-      authenticated: false
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      id:
-        name: id
-        description: 'The ID of the content.'
-        required: true
-        example: 1
-        type: integer
-        enumValues: []
-        exampleWasSpecified: true
-        custom: []
-    cleanUrlParameters:
-      id: 1
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses:
-      -
-        status: 200
-        content: |-
-          {
-           "code": 200,
-           "data": {
-             "id": 1,
-             "title": "Introduction to Programming",
-             "description": "A basic introduction to programming concepts.",
-             "category": {
-               "id": 1,
-               "name": "Technology"
-             },
-             "content_type": {
-               "id": 1,
-               "name": "Article"
-             },
-             "user": {
-               "id": 1,
-               "name": "John Doe"
-             },
-             "media": [
-               {
-                 "id": 1,
-                 "url": "https://example.com/media/image.jpg"
-               }
-             ],
-             "created_at": "2024-01-01T00:00:00.000000Z",
-             "updated_at": "2024-01-01T00:00:00.000000Z"
-           },
-           "message": "Content retrieved successfully"
-          }
-        headers: []
-        description: ''
-        custom: []
-      -
-        status: 404
-        content: |-
-          {
-           "code": 404,
-           "message": "Content not found"
           }
         headers: []
         description: ''

@@ -39,114 +39,10 @@ endpoints:
                "id": 1,
                "title": "Ad Title",
                "image_url": "https://example.com/image.jpg",
-               "link": "https://example.com",
-               "active": true,
-               "created_at": "2024-01-01T00:00:00.000000Z",
-               "updated_at": "2024-01-01T00:00:00.000000Z"
+               "content": " "
              }
            ],
            "message": "Ads retrieved successfully"
-          }
-        headers: []
-        description: ''
-        custom: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - POST
-    uri: api/ads
-    metadata:
-      groupName: 'Ad Management'
-      groupDescription: |-
-
-        APIs for managing ads in the e-library.
-      subgroup: ''
-      subgroupDescription: ''
-      title: 'Create a new ad.'
-      description: ''
-      authenticated: false
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      title:
-        name: title
-        description: 'The title of the ad.'
-        required: true
-        example: '"Summer Sale"'
-        type: string
-        enumValues: []
-        exampleWasSpecified: true
-        custom: []
-      image_url:
-        name: image_url
-        description: 'The URL of the ad image.'
-        required: true
-        example: '"https://example.com/image.jpg"'
-        type: string
-        enumValues: []
-        exampleWasSpecified: true
-        custom: []
-      link:
-        name: link
-        description: 'optional The URL to which the ad redirects.'
-        required: false
-        example: '"https://example.com"'
-        type: string
-        enumValues: []
-        exampleWasSpecified: true
-        custom: []
-      active:
-        name: active
-        description: 'Whether the ad is active.'
-        required: true
-        example: true
-        type: boolean
-        enumValues: []
-        exampleWasSpecified: true
-        custom: []
-    cleanBodyParameters:
-      title: '"Summer Sale"'
-      image_url: '"https://example.com/image.jpg"'
-      link: '"https://example.com"'
-      active: true
-    fileParameters: []
-    responses:
-      -
-        status: 201
-        content: |-
-          {
-           "code": 201,
-           "data": {
-             "id": 1,
-             "title": "Summer Sale",
-             "image_url": "https://example.com/image.jpg",
-             "link": "https://example.com",
-             "active": true,
-             "created_at": "2024-01-01T00:00:00.000000Z",
-             "updated_at": "2024-01-01T00:00:00.000000Z"
-           },
-           "message": "Ad created successfully"
-          }
-        headers: []
-        description: ''
-        custom: []
-      -
-        status: 422
-        content: |-
-          {
-           "code": 422,
-           "message": "The given data was invalid."
           }
         headers: []
         description: ''
@@ -202,10 +98,7 @@ endpoints:
              "id": 1,
              "title": "Ad Title",
              "image_url": "https://example.com/image.jpg",
-             "link": "https://example.com",
-             "active": true,
-             "created_at": "2024-01-01T00:00:00.000000Z",
-             "updated_at": "2024-01-01T00:00:00.000000Z"
+             "content": " "
            },
            "message": "Ad retrieved successfully"
           }
@@ -222,6 +115,155 @@ endpoints:
         headers: []
         description: ''
         custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/ads
+    metadata:
+      groupName: 'Ad Management'
+      groupDescription: |-
+
+        APIs for managing ads in the e-library.
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Create a new ad.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      title:
+        name: title
+        description: 'The title of the ad.'
+        required: true
+        example: '"Summer Sale"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        custom: []
+      image_url:
+        name: image_url
+        description: 'The URL of the ad image.'
+        required: true
+        example: '"https://example.com/image.jpg"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        custom: []
+      content:
+        name: content
+        description: ''
+        required: false
+        example: null
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      link:
+        name: link
+        description: 'optional The URL to which the ad redirects.'
+        required: false
+        example: '"https://example.com"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        custom: []
+      active:
+        name: active
+        description: 'Whether the ad is active.'
+        required: true
+        example: true
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: true
+        custom: []
+    cleanBodyParameters:
+      title: '"Summer Sale"'
+      image_url: '"https://example.com/image.jpg"'
+      link: '"https://example.com"'
+      active: true
+    fileParameters: []
+    responses:
+      -
+        status: 201
+        content: |-
+          {
+           "code": 201,
+           "data": {
+             "id": 1,
+             "title": "Summer Sale",
+             "image_url": "https://example.com/image.jpg",
+             "content": " "
+           },
+           "message": "Ad created successfully"
+          }
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 422
+        content: |-
+          {
+           "code": 422,
+           "message": "The given data was invalid."
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/ads/{id}'
+    metadata:
+      groupName: 'Ad Management'
+      groupDescription: |-
+
+        APIs for managing ads in the e-library.
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Remove the specified resource from storage.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the ad.'
+        required: true
+        example: cum
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanUrlParameters:
+      id: cum
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
     responseFields: []
     auth: []
     controller: null

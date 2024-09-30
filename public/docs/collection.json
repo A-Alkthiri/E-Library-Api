@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "Laravel",
-        "_postman_id": "13354c20-a32c-498c-9be4-f1fb72aee723",
+        "_postman_id": "fe18b6e6-f6dd-4ce7-ad39-21b71a3bd339",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -49,51 +49,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\n \"code\": 200,\n \"data\": [\n   {\n     \"id\": 1,\n     \"title\": \"Ad Title\",\n     \"image_url\": \"https:\/\/example.com\/image.jpg\",\n     \"link\": \"https:\/\/example.com\",\n     \"active\": true,\n     \"created_at\": \"2024-01-01T00:00:00.000000Z\",\n     \"updated_at\": \"2024-01-01T00:00:00.000000Z\"\n   }\n ],\n \"message\": \"Ads retrieved successfully\"\n}",
-                            "name": ""
-                        }
-                    ]
-                },
-                {
-                    "name": "Create a new ad.",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/ads",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/ads"
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\"title\":\"\\\"Summer Sale\\\"\",\"image_url\":\"\\\"https:\\\/\\\/example.com\\\/image.jpg\\\"\",\"link\":\"\\\"https:\\\/\\\/example.com\\\"\",\"active\":true}"
-                        },
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": [
-                        {
-                            "header": [],
-                            "code": 201,
-                            "body": "{\n \"code\": 201,\n \"data\": {\n   \"id\": 1,\n   \"title\": \"Summer Sale\",\n   \"image_url\": \"https:\/\/example.com\/image.jpg\",\n   \"link\": \"https:\/\/example.com\",\n   \"active\": true,\n   \"created_at\": \"2024-01-01T00:00:00.000000Z\",\n   \"updated_at\": \"2024-01-01T00:00:00.000000Z\"\n },\n \"message\": \"Ad created successfully\"\n}",
-                            "name": ""
-                        },
-                        {
-                            "header": [],
-                            "code": 422,
-                            "body": "{\n \"code\": 422,\n \"message\": \"The given data was invalid.\"\n}",
+                            "body": "{\n \"code\": 200,\n \"data\": [\n   {\n     \"id\": 1,\n     \"title\": \"Ad Title\",\n     \"image_url\": \"https:\/\/example.com\/image.jpg\",\n     \"content\": \" \"\n   }\n ],\n \"message\": \"Ads retrieved successfully\"\n}",
                             "name": ""
                         }
                     ]
@@ -136,7 +92,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\n \"code\": 200,\n \"data\": {\n   \"id\": 1,\n   \"title\": \"Ad Title\",\n   \"image_url\": \"https:\/\/example.com\/image.jpg\",\n   \"link\": \"https:\/\/example.com\",\n   \"active\": true,\n   \"created_at\": \"2024-01-01T00:00:00.000000Z\",\n   \"updated_at\": \"2024-01-01T00:00:00.000000Z\"\n },\n \"message\": \"Ad retrieved successfully\"\n}",
+                            "body": "{\n \"code\": 200,\n \"data\": {\n   \"id\": 1,\n   \"title\": \"Ad Title\",\n   \"image_url\": \"https:\/\/example.com\/image.jpg\",\n   \"content\": \" \"\n },\n \"message\": \"Ad retrieved successfully\"\n}",
                             "name": ""
                         },
                         {
@@ -146,6 +102,86 @@
                             "name": ""
                         }
                     ]
+                },
+                {
+                    "name": "Create a new ad.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/ads",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/ads"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"title\":\"\\\"Summer Sale\\\"\",\"image_url\":\"\\\"https:\\\/\\\/example.com\\\/image.jpg\\\"\",\"link\":\"\\\"https:\\\/\\\/example.com\\\"\",\"active\":true}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 201,
+                            "body": "{\n \"code\": 201,\n \"data\": {\n   \"id\": 1,\n   \"title\": \"Summer Sale\",\n   \"image_url\": \"https:\/\/example.com\/image.jpg\",\n   \"content\": \" \"\n },\n \"message\": \"Ad created successfully\"\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\n \"code\": 422,\n \"message\": \"The given data was invalid.\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Remove the specified resource from storage.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/ads\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/ads\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "cum",
+                                    "description": "The ID of the ad."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
                 }
             ]
         },
@@ -347,50 +383,6 @@
                     ]
                 },
                 {
-                    "name": "Create a new category.",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/categories",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/categories"
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\"name\":\"Technology\"}"
-                        },
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": [
-                        {
-                            "header": [],
-                            "code": 201,
-                            "body": "{\n \"code\": 201,\n \"data\": {\n   \"id\": 1,\n   \"name\": \"Technology\",\n   \"created_at\": \"2024-01-01T00:00:00.000000Z\",\n   \"updated_at\": \"2024-01-01T00:00:00.000000Z\"\n },\n \"message\": \"Category created successfully\"\n}",
-                            "name": ""
-                        },
-                        {
-                            "header": [],
-                            "code": 422,
-                            "body": "{\n \"code\": 422,\n \"message\": \"The given data was invalid.\"\n}",
-                            "name": ""
-                        }
-                    ]
-                },
-                {
                     "name": "Get a single category.",
                     "request": {
                         "url": {
@@ -435,6 +427,50 @@
                             "header": [],
                             "code": 404,
                             "body": "{\n \"code\": 404,\n \"message\": \"Category not found\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Create a new category.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/categories",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/categories"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"Technology\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 201,
+                            "body": "{\n \"code\": 201,\n \"data\": {\n   \"id\": 1,\n   \"name\": \"Technology\",\n   \"created_at\": \"2024-01-01T00:00:00.000000Z\",\n   \"updated_at\": \"2024-01-01T00:00:00.000000Z\"\n },\n \"message\": \"Category created successfully\"\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\n \"code\": 422,\n \"message\": \"The given data was invalid.\"\n}",
                             "name": ""
                         }
                     ]
@@ -547,6 +583,37 @@
             "description": "\nAPIs for managing content in the e-library.",
             "item": [
                 {
+                    "name": "POST api\/categoryContentType",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/categoryContentType",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/categoryContentType"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"category_id\":8,\"content_type_id\":6}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
                     "name": "Get all content.",
                     "request": {
                         "url": {
@@ -577,50 +644,6 @@
                             "header": [],
                             "code": 200,
                             "body": "{\n \"code\": 200,\n \"data\": [\n   {\n     \"id\": 1,\n     \"title\": \"Introduction to Programming\",\n     \"description\": \"A basic introduction to programming concepts.\",\n     \"category\": {\n       \"id\": 1,\n       \"name\": \"Technology\"\n     },\n     \"content_type\": {\n       \"id\": 1,\n       \"name\": \"Article\"\n     },\n     \"user\": {\n       \"id\": 1,\n       \"name\": \"John Doe\"\n     },\n     \"media\": [\n       {\n         \"id\": 1,\n         \"url\": \"https:\/\/example.com\/media\/image.jpg\"\n       }\n     ],\n     \"created_at\": \"2024-01-01T00:00:00.000000Z\",\n     \"updated_at\": \"2024-01-01T00:00:00.000000Z\"\n   }\n ],\n \"message\": \"Content retrieved successfully\"\n}",
-                            "name": ""
-                        }
-                    ]
-                },
-                {
-                    "name": "Create a new content.",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/contents",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/contents"
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\"title\":\"Introduction to Programming\",\"description\":\"A basic introduction to programming concepts.\",\"category_id\":1,\"image_path\":\"\\\/images\\\/programming.jpg\",\"type_id\":1,\"user_id\":1}"
-                        },
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": [
-                        {
-                            "header": [],
-                            "code": 201,
-                            "body": "{\n \"code\": 201,\n \"data\": {\n   \"id\": 1,\n   \"title\": \"Introduction to Programming\",\n   \"description\": \"A basic introduction to programming concepts.\",\n   \"category\": {\n     \"id\": 1,\n     \"name\": \"Technology\"\n   },\n   \"content_type\": {\n     \"id\": 1,\n     \"name\": \"Article\"\n   },\n   \"user\": {\n     \"id\": 1,\n     \"name\": \"John Doe\"\n   },\n   \"media\": [\n     {\n       \"id\": 1,\n       \"url\": \"https:\/\/example.com\/media\/image.jpg\"\n     }\n   ],\n   \"created_at\": \"2024-01-01T00:00:00.000000Z\",\n   \"updated_at\": \"2024-01-01T00:00:00.000000Z\"\n },\n \"message\": \"Content created successfully\"\n}",
-                            "name": ""
-                        },
-                        {
-                            "header": [],
-                            "code": 422,
-                            "body": "{\n \"code\": 422,\n \"message\": \"The given data was invalid.\"\n}",
                             "name": ""
                         }
                     ]
@@ -670,6 +693,50 @@
                             "header": [],
                             "code": 404,
                             "body": "{\n \"code\": 404,\n \"message\": \"Content not found\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Create a new content.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/contents",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/contents"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"title\":\"Introduction to Programming\",\"description\":\"A basic introduction to programming concepts.\",\"category_id\":1,\"image_path\":\"\\\/images\\\/programming.jpg\",\"type_id\":1,\"user_id\":1}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 201,
+                            "body": "{\n \"code\": 201,\n \"data\": {\n   \"id\": 1,\n   \"title\": \"Introduction to Programming\",\n   \"description\": \"A basic introduction to programming concepts.\",\n   \"category\": {\n     \"id\": 1,\n     \"name\": \"Technology\"\n   },\n   \"content_type\": {\n     \"id\": 1,\n     \"name\": \"Article\"\n   },\n   \"user\": {\n     \"id\": 1,\n     \"name\": \"John Doe\"\n   },\n   \"media\": [\n     {\n       \"id\": 1,\n       \"url\": \"https:\/\/example.com\/media\/image.jpg\"\n     }\n   ],\n   \"created_at\": \"2024-01-01T00:00:00.000000Z\",\n   \"updated_at\": \"2024-01-01T00:00:00.000000Z\"\n },\n \"message\": \"Content created successfully\"\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\n \"code\": 422,\n \"message\": \"The given data was invalid.\"\n}",
                             "name": ""
                         }
                     ]
@@ -817,50 +884,6 @@
                     ]
                 },
                 {
-                    "name": "Create a new content type.",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/content-types",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/content-types"
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\"name\":\"Article\"}"
-                        },
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": [
-                        {
-                            "header": [],
-                            "code": 201,
-                            "body": "{\n \"code\": 201,\n \"data\": {\n   \"id\": 1,\n   \"name\": \"Article\",\n   \"created_at\": \"2024-01-01T00:00:00.000000Z\",\n   \"updated_at\": \"2024-01-01T00:00:00.000000Z\"\n },\n \"message\": \"Content type created successfully\"\n}",
-                            "name": ""
-                        },
-                        {
-                            "header": [],
-                            "code": 422,
-                            "body": "{\n \"code\": 422,\n \"message\": \"The given data was invalid.\"\n}",
-                            "name": ""
-                        }
-                    ]
-                },
-                {
                     "name": "Get a single content type.",
                     "request": {
                         "url": {
@@ -908,23 +931,69 @@
                             "name": ""
                         }
                     ]
-                }
-            ]
-        },
-        {
-            "name": "Endpoints",
-            "description": "",
-            "item": [
+                },
                 {
-                    "name": "GET api\/users",
+                    "name": "Create a new content type.",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
-                            "path": "api\/users",
+                            "path": "api\/content-types",
                             "query": [],
-                            "raw": "{{baseUrl}}\/api\/users"
+                            "raw": "{{baseUrl}}\/api\/content-types"
                         },
-                        "method": "GET",
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"Article\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 201,
+                            "body": "{\n \"code\": 201,\n \"data\": {\n   \"id\": 1,\n   \"name\": \"Article\",\n   \"created_at\": \"2024-01-01T00:00:00.000000Z\",\n   \"updated_at\": \"2024-01-01T00:00:00.000000Z\"\n },\n \"message\": \"Content type created successfully\"\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\n \"code\": 422,\n \"message\": \"The given data was invalid.\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Remove the specified resource from storage.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/content-types\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/content-types\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "quae",
+                                    "description": "The ID of the content type."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
                         "header": [
                             {
                                 "key": "Content-Type",
@@ -941,28 +1010,14 @@
                             "type": "noauth"
                         }
                     },
-                    "response": [
-                        {
-                            "header": [
-                                {
-                                    "key": "cache-control",
-                                    "value": "no-cache, private"
-                                },
-                                {
-                                    "key": "content-type",
-                                    "value": "application\/json"
-                                },
-                                {
-                                    "key": "access-control-allow-origin",
-                                    "value": "*"
-                                }
-                            ],
-                            "code": 401,
-                            "body": "{\"message\":\"Unauthenticated.\"}",
-                            "name": ""
-                        }
-                    ]
-                },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Endpoints",
+            "description": "",
+            "item": [
                 {
                     "name": "POST api\/users",
                     "request": {
@@ -985,7 +1040,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"eligendi\",\"email\":\"una59@example.org\",\"password\":\"\\\/3+1!GGp(~B{\"}"
+                            "raw": "{\"name\":\"excepturi\",\"email\":\"king.connie@example.org\",\"password\":\"4a@3ENL_fJc{8N_0\"}"
                         },
                         "description": "",
                         "auth": {
@@ -993,62 +1048,6 @@
                         }
                     },
                     "response": []
-                },
-                {
-                    "name": "GET api\/users\/{id}",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/users\/:id",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/users\/:id",
-                            "variable": [
-                                {
-                                    "id": "id",
-                                    "key": "id",
-                                    "value": "doloribus",
-                                    "description": "The ID of the user."
-                                }
-                            ]
-                        },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": [
-                        {
-                            "header": [
-                                {
-                                    "key": "cache-control",
-                                    "value": "no-cache, private"
-                                },
-                                {
-                                    "key": "content-type",
-                                    "value": "application\/json"
-                                },
-                                {
-                                    "key": "access-control-allow-origin",
-                                    "value": "*"
-                                }
-                            ],
-                            "code": 401,
-                            "body": "{\"message\":\"Unauthenticated.\"}",
-                            "name": ""
-                        }
-                    ]
                 }
             ]
         },
@@ -1087,50 +1086,6 @@
                             "header": [],
                             "code": 200,
                             "body": "{\n \"code\": 200,\n \"data\": [\n   {\n     \"id\": 1,\n     \"content_id\": 1,\n     \"url\": \"https:\/\/example.com\/media\/image.jpg\",\n     \"type\": \"image\",\n     \"created_at\": \"2024-01-01T00:00:00.000000Z\",\n     \"updated_at\": \"2024-01-01T00:00:00.000000Z\"\n   }\n ],\n \"message\": \"Media retrieved successfully\"\n}",
-                            "name": ""
-                        }
-                    ]
-                },
-                {
-                    "name": "Create a new media resource.",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/media",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/media"
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\"content_id\":1,\"url\":\"https:\\\/\\\/example.com\\\/media\\\/image.jpg\",\"type\":\"image\"}"
-                        },
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": [
-                        {
-                            "header": [],
-                            "code": 201,
-                            "body": "{\n \"code\": 201,\n \"data\": {\n   \"id\": 1,\n   \"content_id\": 1,\n   \"url\": \"https:\/\/example.com\/media\/image.jpg\",\n   \"type\": \"image\",\n   \"created_at\": \"2024-01-01T00:00:00.000000Z\",\n   \"updated_at\": \"2024-01-01T00:00:00.000000Z\"\n },\n \"message\": \"Media created successfully\"\n}",
-                            "name": ""
-                        },
-                        {
-                            "header": [],
-                            "code": 422,
-                            "body": "{\n \"code\": 422,\n \"message\": \"The given data was invalid.\"\n}",
                             "name": ""
                         }
                     ]
@@ -1183,6 +1138,86 @@
                             "name": ""
                         }
                     ]
+                },
+                {
+                    "name": "Create a new media resource.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/media",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/media"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"content_id\":1,\"url\":\"https:\\\/\\\/example.com\\\/media\\\/image.jpg\",\"type\":\"image\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 201,
+                            "body": "{\n \"code\": 201,\n \"data\": {\n   \"id\": 1,\n   \"content_id\": 1,\n   \"url\": \"https:\/\/example.com\/media\/image.jpg\",\n   \"type\": \"image\",\n   \"created_at\": \"2024-01-01T00:00:00.000000Z\",\n   \"updated_at\": \"2024-01-01T00:00:00.000000Z\"\n },\n \"message\": \"Media created successfully\"\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\n \"code\": 422,\n \"message\": \"The given data was invalid.\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Remove the specified resource from storage.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/media\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/media\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "repellendus",
+                                    "description": "The ID of the medium."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
                 }
             ]
         }

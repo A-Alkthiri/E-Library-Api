@@ -57,6 +57,74 @@ endpoints:
     custom: []
   -
     httpMethods:
+      - GET
+    uri: 'api/content-types/{id}'
+    metadata:
+      groupName: 'Content Type Management'
+      groupDescription: |-
+
+        APIs for managing content types in the e-library.
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Get a single content type.'
+      description: 'Retrieve a specific content type by its ID.'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the content type.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+           "code": 200,
+           "data": {
+             "id": 1,
+             "name": "Article",
+             "created_at": "2024-01-01T00:00:00.000000Z",
+             "updated_at": "2024-01-01T00:00:00.000000Z"
+           },
+           "message": "Content type retrieved successfully"
+          }
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 404
+        content: |-
+          {
+           "code": 404,
+           "message": "Content type not found"
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
       - POST
     uri: api/content-types
     metadata:
@@ -125,7 +193,7 @@ endpoints:
     custom: []
   -
     httpMethods:
-      - GET
+      - DELETE
     uri: 'api/content-types/{id}'
     metadata:
       groupName: 'Content Type Management'
@@ -134,8 +202,8 @@ endpoints:
         APIs for managing content types in the e-library.
       subgroup: ''
       subgroupDescription: ''
-      title: 'Get a single content type.'
-      description: 'Retrieve a specific content type by its ID.'
+      title: 'Remove the specified resource from storage.'
+      description: ''
       authenticated: false
       custom: []
     headers:
@@ -146,45 +214,19 @@ endpoints:
         name: id
         description: 'The ID of the content type.'
         required: true
-        example: 1
-        type: integer
+        example: quae
+        type: string
         enumValues: []
-        exampleWasSpecified: true
+        exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
-      id: 1
+      id: quae
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
     cleanBodyParameters: []
     fileParameters: []
-    responses:
-      -
-        status: 200
-        content: |-
-          {
-           "code": 200,
-           "data": {
-             "id": 1,
-             "name": "Article",
-             "created_at": "2024-01-01T00:00:00.000000Z",
-             "updated_at": "2024-01-01T00:00:00.000000Z"
-           },
-           "message": "Content type retrieved successfully"
-          }
-        headers: []
-        description: ''
-        custom: []
-      -
-        status: 404
-        content: |-
-          {
-           "code": 404,
-           "message": "Content type not found"
-          }
-        headers: []
-        description: ''
-        custom: []
+    responses: []
     responseFields: []
     auth: []
     controller: null
