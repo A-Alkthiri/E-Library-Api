@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
  *
  * APIs for managing content types in the e-library.
  */
-class ContentTypeController extends Controller
+class ContentTypeController extends BaseApiController
 {
     /**
      * Get all content types.
@@ -121,8 +121,15 @@ class ContentTypeController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    // public function destroy(string $id)
-    // {
-    //     //
-    // }
+    public function destroy(string $id)
+    {
+        $contentType = ContentType::find($id);
+        if (!$contentType) {
+            return $this->sendError('ContentType not found', 404);
+        }
+
+        $contentType->delete();
+
+        return $this->sendResponse(null, 'ContentType deleted successfully');
+    }
 }

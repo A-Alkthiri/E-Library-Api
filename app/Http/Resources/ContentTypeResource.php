@@ -16,7 +16,8 @@ class ContentTypeResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'name' => $this->name,
+            'name' => $this->type,
+            'contents' => ContentResource::collection($this->contents)
         ];
     }
 }

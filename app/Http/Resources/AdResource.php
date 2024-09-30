@@ -17,9 +17,8 @@ class AdResource extends JsonResource
         return [
             'id' => $this->id,
             'title' => $this->title,
+            'content' => $this->content,
             'image_url' => $this->image_url,
-            'link' => $this->link,
-            'active' => $this->active,
         ];
     }
 }

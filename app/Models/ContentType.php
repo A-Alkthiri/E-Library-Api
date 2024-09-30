@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class ContentType extends Model
 {
     use HasFactory;
-    protected $fillable = ['name'];
+    protected $fillable = ['id','type'];
 
     // A content type can have many contents
     public function contents()

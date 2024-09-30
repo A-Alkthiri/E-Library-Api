@@ -19,8 +19,8 @@ class ContentResource extends JsonResource
             'title' => $this->title,
             'description' => $this->description,
             'image_path' => $this->image_path,
-            'category' => new CategoryResource($this->whenLoaded('category')),
-            'content_type' => new ContentTypeResource($this->whenLoaded('contentType')),
+            'category_id' => $this->category_id,//new CategoryResource($this->whenLoaded('category')),
+            'content_type_id' => $this->content_type_id ,//new ContentTypeResource($this->whenLoaded('contentType')),
             'user' => new UserResource($this->whenLoaded('user')),
             'media' => MediaResource::collection($this->whenLoaded('media')),
         ];

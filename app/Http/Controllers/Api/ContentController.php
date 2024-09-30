@@ -1,10 +1,12 @@
 <?php
+
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\ContentResource;
 use App\Models\Content;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 /**
  * @group Content Management
@@ -259,4 +261,36 @@ class ContentController extends BaseApiController
 
         return $this->sendResponse(null, 'Content deleted successfully');
     }
+
+    public function categoryContentType(Request $request)
+{
+    $request->validate([
+        'category_id' => 'required|integer|exists:categories,id',
+        'content_type_id' => 'required|integer|exists:content_types,id',
+    ]);
+    
+    // Validate that both 'category_id' and 'content_type_id' are provided
+    if ($request->post('category_id') == null || $request->post('content_type_id') == null) {
+        return $this->sendError('Enter category_id and content_type_id', 404);
+    }
+
+    // Fetch the content based on category_id and content_type_id
+    $content = Content::with(['category', 'contentType', 'media'])
+                ->where('category_id', '=', $request->post('category_id'))
+                ->where('content_type_id', '=', $request->post('content_type_id'))
+                ->get();
+
+    // Check if the content is empty
+    if ($content->isEmpty()) {
+        return $this->sendError('Content not found for the provided category and content type', 404);
+    }
+
+    // Return the content using a resource collection
+    return response()->json([
+        'code' => 200,
+        'data' =>ContentResource::collection($content),
+        'message' => 'Content retrieved successfully',
+    ]);
+}
+
 }

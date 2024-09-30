@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
  *
  * APIs for managing media resources in the e-library.
  */
-class MediaController extends Controller
+class MediaController extends BaseApiController
 {
    /**
     * Get all media.
@@ -127,11 +127,18 @@ class MediaController extends Controller
     //     //
     // }
 
-    // /**
-    //  * Remove the specified resource from storage.
-    //  */
-    // public function destroy(string $id)
-    // {
-    //     //
-    // }
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(string $id)
+    {
+        $media = Media::find($id);
+        if (!$media) {
+            return $this->sendError('Media not found', 404);
+        }
+
+        $media->delete();
+
+        return $this->sendResponse(null, 'Media deleted successfully');
+    }
 }

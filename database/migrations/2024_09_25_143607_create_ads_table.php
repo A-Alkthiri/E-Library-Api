@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('ads', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->text('content'); // Ad text or description
-            $table->string('image_path')->nullable(); // Path to the image, if any
+            $table->text('content')->nullable(); // Ad text or description
+            $table->string('image_url')->nullable(); // Path to the image, if any
             $table->timestamps();
         });
     }

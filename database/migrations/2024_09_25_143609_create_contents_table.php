@@ -16,12 +16,12 @@ return new class extends Migration
             $table->string('title');
             $table->text('description')->nullable();
             $table->unsignedBigInteger('category_id'); // FK to categories
-            $table->unsignedBigInteger('type_id'); // FK to content types
+            $table->unsignedBigInteger('content_type_id'); // FK to content types
             $table->string('image_path')->nullable();
             $table->timestamps();
         
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
-            $table->foreign('type_id')->references('id')->on('content_types')->onDelete('cascade');
+            $table->foreign('content_type_id')->references('id')->on('content_types')->onDelete('cascade');
         
         });
     }

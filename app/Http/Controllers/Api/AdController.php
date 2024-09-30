@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
  *
  * APIs for managing ads in the e-library.
  */
-class AdController extends Controller
+class AdController extends BaseApiController
 {
     /**
      * Get all ads.
@@ -25,10 +25,7 @@ class AdController extends Controller
      *      "id": 1,
      *      "title": "Ad Title",
      *      "image_url": "https://example.com/image.jpg",
-     *      "link": "https://example.com",
-     *      "active": true,
-     *      "created_at": "2024-01-01T00:00:00.000000Z",
-     *      "updated_at": "2024-01-01T00:00:00.000000Z"
+     *      "content": " "
      *    }
      *  ],
      *  "message": "Ads retrieved successfully"
@@ -57,10 +54,7 @@ class AdController extends Controller
      *    "id": 1,
      *    "title": "Ad Title",
      *    "image_url": "https://example.com/image.jpg",
-     *    "link": "https://example.com",
-     *    "active": true,
-     *    "created_at": "2024-01-01T00:00:00.000000Z",
-     *    "updated_at": "2024-01-01T00:00:00.000000Z"
+     *    "content": " "
      *  },
      *  "message": "Ad retrieved successfully"
      * }
@@ -93,10 +87,7 @@ class AdController extends Controller
      *    "id": 1,
      *    "title": "Summer Sale",
      *    "image_url": "https://example.com/image.jpg",
-     *    "link": "https://example.com",
-     *    "active": true,
-     *    "created_at": "2024-01-01T00:00:00.000000Z",
-     *    "updated_at": "2024-01-01T00:00:00.000000Z"
+     *    "content": " "
      *  },
      *  "message": "Ad created successfully"
      * }
@@ -109,9 +100,8 @@ class AdController extends Controller
     {
         $validatedData = $request->validate([
             'title' => 'required|max:255',
-            'image_url' => 'required|url',
-            'link' => 'nullable|url',
-            'active' => 'required|boolean',
+            'image_url' => 'required',
+            'content' => 'nullable',
         ]);
 
         $ad = Ad::create($validatedData);
@@ -131,11 +121,18 @@ class AdController extends Controller
     //     //
     // }
 
-    // /**
-    //  * Remove the specified resource from storage.
-    //  */
-    // public function destroy(string $id)
-    // {
-    //     //
-    // }
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(string $id)
+    {
+        $ad = Ad::find($id);
+        if (!$ad) {
+            return $this->sendError('Ad not found', 404);
+        }
+
+        $ad->delete();
+
+        return $this->sendResponse(null, 'Ad deleted successfully');
+    }
 }

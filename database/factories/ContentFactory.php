@@ -22,7 +22,7 @@ class ContentFactory extends Factory
             'title' => fake()->sentence,
             'description' => fake()->paragraph,
             'category_id' => Category::inRandomOrder()->first()->id, // Random category
-            'type_id' => ContentType::inRandomOrder()->first()->id, // Random content type
+            'content_type_id' => ContentType::inRandomOrder()->first()->id, // Random content type
         ];
     }
 }

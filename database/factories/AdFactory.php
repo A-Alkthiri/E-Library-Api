@@ -19,7 +19,7 @@ class AdFactory extends Factory
         return [
             'title' => fake()->catchPhrase,
             'content' => fake()->paragraph,
-            'image_path' => fake()->imageUrl(640, 480, 'ads'), // Random ad image
+            'image_url' => fake()->imageUrl(640, 480, 'ads'), // Random ad image
         ];
     }
 }
