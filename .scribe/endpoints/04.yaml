@@ -164,36 +164,17 @@ endpoints:
         custom: []
       content:
         name: content
-        description: ''
+        description: 'optinal required The URL of the ad image.'
         required: false
-        example: null
+        example: '"https://example.com/image.jpg"'
         type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      link:
-        name: link
-        description: 'optional The URL to which the ad redirects.'
-        required: false
-        example: '"https://example.com"'
-        type: string
-        enumValues: []
-        exampleWasSpecified: true
-        custom: []
-      active:
-        name: active
-        description: 'Whether the ad is active.'
-        required: true
-        example: true
-        type: boolean
         enumValues: []
         exampleWasSpecified: true
         custom: []
     cleanBodyParameters:
       title: '"Summer Sale"'
       image_url: '"https://example.com/image.jpg"'
-      link: '"https://example.com"'
-      active: true
+      content: '"https://example.com/image.jpg"'
     fileParameters: []
     responses:
       -
@@ -251,13 +232,13 @@ endpoints:
         name: id
         description: 'The ID of the ad.'
         required: true
-        example: cum
+        example: ut
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
-      id: cum
+      id: ut
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []

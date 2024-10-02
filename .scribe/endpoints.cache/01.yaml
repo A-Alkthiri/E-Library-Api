@@ -32,7 +32,7 @@ endpoints:
         name: category_id
         description: ''
         required: true
-        example: 8
+        example: 1
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -41,14 +41,14 @@ endpoints:
         name: content_type_id
         description: ''
         required: true
-        example: 6
+        example: 13
         type: integer
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      category_id: 8
-      content_type_id: 6
+      category_id: 1
+      content_type_id: 13
     fileParameters: []
     responses: []
     responseFields: []
@@ -272,6 +272,15 @@ endpoints:
         enumValues: []
         exampleWasSpecified: true
         custom: []
+      media_url:
+        name: media_url
+        description: "The path to the content's media."
+        required: true
+        example: /images/programming.jpg
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        custom: []
       type_id:
         name: type_id
         description: 'The ID of the content type.'
@@ -295,6 +304,7 @@ endpoints:
       description: 'A basic introduction to programming concepts.'
       category_id: 1
       image_path: /images/programming.jpg
+      media_url: /images/programming.jpg
       type_id: 1
       user_id: 1
     fileParameters: []
@@ -420,6 +430,15 @@ endpoints:
         enumValues: []
         exampleWasSpecified: true
         custom: []
+      media_url:
+        name: media_url
+        description: "The path to the content's media."
+        required: false
+        example: /images/programming.jpg
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        custom: []
       type_id:
         name: type_id
         description: 'The ID of the content type.'
@@ -443,6 +462,7 @@ endpoints:
       description: 'A basic introduction to programming concepts.'
       category_id: 1
       image_path: /images/programming.jpg
+      media_url: /images/programming.jpg
       type_id: 1
       user_id: 1
     fileParameters: []

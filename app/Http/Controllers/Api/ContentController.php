@@ -120,6 +120,7 @@ class ContentController extends BaseApiController
      * @bodyParam description string required A detailed description of the content. Example: A basic introduction to programming concepts.
      * @bodyParam category_id integer required The ID of the category. Example: 1
      * @bodyParam image_path string required The path to the content's image. Example: /images/programming.jpg
+     * @bodyParam media_url string required The path to the content's media. Example: /images/programming.jpg
      * @bodyParam type_id integer required The ID of the content type. Example: 1
      * @bodyParam user_id integer required The ID of the user who created the content. Example: 1
      *
@@ -164,6 +165,7 @@ class ContentController extends BaseApiController
             'description' => 'required',
             'category_id' => 'required|exists:categories,id',
             'image_path' => 'required|string',
+            'media_url' => 'required|string',
             'type_id' => 'required|exists:content_types,id',
             'user_id' => 'required|exists:users,id',
         ]);
@@ -185,6 +187,7 @@ class ContentController extends BaseApiController
      * @bodyParam description string A detailed description of the content. Example: A basic introduction to programming concepts.
      * @bodyParam category_id integer The ID of the category. Example: 1
      * @bodyParam image_path string The path to the content's image. Example: /images/programming.jpg
+     * @bodyParam media_url string The path to the content's media. Example: /images/programming.jpg
      * @bodyParam type_id integer The ID of the content type. Example: 1
      * @bodyParam user_id integer The ID of the user who created the content. Example: 1
      *

@@ -18,6 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('category_id'); // FK to categories
             $table->unsignedBigInteger('content_type_id'); // FK to content types
             $table->string('image_path')->nullable();
+            $table->string('media_url')->nullable();
             $table->timestamps();
         
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');

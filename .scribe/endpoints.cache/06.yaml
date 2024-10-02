@@ -5,6 +5,45 @@ description: ''
 endpoints:
   -
     httpMethods:
+      - GET
+    uri: api/users
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
       - POST
     uri: api/users
     metadata:
@@ -28,7 +67,7 @@ endpoints:
         name: name
         description: ''
         required: true
-        example: excepturi
+        example: sint
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -37,7 +76,7 @@ endpoints:
         name: email
         description: 'Must be a valid email address.'
         required: true
-        example: king.connie@example.org
+        example: conn.alene@example.com
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -46,17 +85,66 @@ endpoints:
         name: password
         description: 'Must be at least 6 characters.'
         required: true
-        example: '4a@3ENL_fJc{8N_0'
+        example: '}QQ(p#FmS5zPIb~!)Yx'
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      name: excepturi
-      email: king.connie@example.org
-      password: '4a@3ENL_fJc{8N_0'
+      name: sint
+      email: conn.alene@example.com
+      password: '}QQ(p#FmS5zPIb~!)Yx'
     fileParameters: []
     responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/users/{id}'
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the user.'
+        required: true
+        example: enim
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanUrlParameters:
+      id: enim
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
     responseFields: []
     auth: []
     controller: null

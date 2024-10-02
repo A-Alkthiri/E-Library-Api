@@ -78,8 +78,8 @@ class AdController extends BaseApiController
      *
      * @bodyParam title string required The title of the ad. Example: "Summer Sale"
      * @bodyParam image_url string required The URL of the ad image. Example: "https://example.com/image.jpg"
-     * @bodyParam link string optional The URL to which the ad redirects. Example: "https://example.com"
-     * @bodyParam active boolean required Whether the ad is active. Example: true
+     * @bodyParam content string optinal required The URL of the ad image. Example: "https://example.com/image.jpg"
+     *
      *
      * @response 201 {
      *  "code": 201,

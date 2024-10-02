@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Content extends Model
 {
     use HasFactory;
-    protected $fillable = ['title', 'description', 'image_path', 'category_id', 'content_type_id', 'user_id'];
+    protected $fillable = ['title', 'description', 'image_path','media_url', 'category_id', 'content_type_id', 'user_id'];
 
     // Each content belongs to a category
     public function category()

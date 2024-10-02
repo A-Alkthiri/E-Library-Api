@@ -240,13 +240,13 @@ endpoints:
         name: id
         description: 'The ID of the medium.'
         required: true
-        example: repellendus
+        example: facere
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
-      id: repellendus
+      id: facere
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
