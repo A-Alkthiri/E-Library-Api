@@ -166,7 +166,7 @@ class ContentController extends BaseApiController
             'category_id' => 'required|exists:categories,id',
             'image_path' => 'required|string',
             'media_url' => 'required|string',
-            'type_id' => 'required|exists:content_types,id',
+            'content_type_id' => 'required|exists:content_types,id',
             'id' => 'required|exists:users,id',
         ]);
 
