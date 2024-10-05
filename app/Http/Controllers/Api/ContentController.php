@@ -167,7 +167,7 @@ class ContentController extends BaseApiController
             'image_path' => 'required|string',
             'media_url' => 'required|string',
             'type_id' => 'required|exists:content_types,id',
-            'user_id' => 'required|exists:users,id',
+            'id' => 'required|exists:users,id',
         ]);
 
         $content = Content::create($validatedData);
